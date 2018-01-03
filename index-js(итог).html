@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Игра угадай число</title>
+			<script type="text/javascript" defer>
+
+	var num = Math.floor((10*Math.random()) + 1);
+	console.log(num);
+	var count = 10;
+
+	// function e() {
+ 			// 	if (usernum >= 1 && usernum <= 10) { alert("wrong");
+				// } 
+
+	function f1() {
+	 			if (count > 0){
+				var usernum = document.getElementById('mynum').value;
+				//usernum = parseInt(usernum);// КАК ДОБАВИТЬ ПРОВЕРКУ НА ВВОД ЧИСЕЛ ОТ 1 ДО 10?
+				//if (usernum >= 1 && usernum <= 10) { alert("wrong");}
+				var out = document.getElementById('out');
+			
+				if (usernum == num) {
+					out.innerHTML = 'Ура вы угадали!';
+				}
+				else if (usernum > num) {
+					out.innerHTML = 'Перелет';
+				}
+				else {
+					out.innerHTML = 'Недолет';
+				}
+				document.getElementById('count').innerHTML = 'Осталось попыток' + count;
+				count = count - 1;
+				}
+			else {
+			alert ('Game over');
+		}
+		//else  {
+		//	out.innerHTML = 'Введите число от 1 до 10';
+		//}
+	}
+			</script>
+			<style>
+			#main {
+			padding: 5px;
+			border: 3px solid Grey;
+			width: 50%; 
+            height: 50%;
+			margin: auto;
+			}
+			#field
+			{
+			float: left;
+			margin-left: 25%;
+			
+			}
+			#mynum
+			{
+			width: 40px;
+			
+			}
+			#button
+			{
+			 width: 20px;
+			 padding-top: 16px;
+			 margin-left: 50%;
+			 position: relative;
+			}
+			
+			#check{
+				text-align: center;
+			
+			}
+			</style>
+			
+	</head>
+<body>
+	<div id="main">
+	<p  align="center"> Угадай число </p>
+	
+	
+			<div id="field">
+			<p>Введите число: <input type="number" size="2" maxlength="2" max="10" min="1" id="mynum" onkeypress ="e()"></p>
+		
+			</div>
+			
+			<div id="button">
+				 <button  onclick="f1()"> Угадать </button>
+			</div>
+			
+			<p align="center" id="out">  </p>
+			<p align="center" id="count"> </p>
+	</div>		
+</body>
+
+</html>
